@@ -110,17 +110,38 @@ Para el desarrollo de la prueba teórica, tendrás que escribir tus respuestas e
 
 - RTA:
 
+Se puede incluir los siguientes mecanismos de seguridad:
+
+- Uso de OAuth, JWT (JSON Web Tokens) para asegurar que solo los usuarios autorizados accedan a los datos.
+- RBAC para asignar permisos específicos según el rol del usuario.
+- Firewalls
+
+
   2.3. ¿Qué estrategia de escalabilidad recomendarías para la aplicación considerando que el crecimiento proyectado será de 1,000,000 de clientes por año?
 
 - RTA:
+
+- Añadir más servidores para distribuir la carga de trabajo.
+- Dividir la aplicación en servicios más pequeños que pueden escalar independientemente.
+- Utilizar balanceadores de carga.
 
   2.4. ¿Qué patrón o patrones de diseño recomendarías para esta solución y cómo se implementarían? (Justifique)
 
 - RTA:
 
+Recomendaría los siguientes patrones de diseño⁶:
+
+- Singleton: Proporcionar un punto de acceso global a unica instancia en las configuraciones globales o conexiones a bases de datos.
+- Observer: Para las dependencias uno a muchos entre objetos.
+
   2.5. ¿Qué recomendaciones harías para optimizar el manejo y la persistencia de datos de la aplicación, teniendo en cuenta que esta aplicación tiene una alta transaccionalidad?
 
 - RTA:
+
+- bases de datos NoSQL como MongoDB o Cassandra para manejar grandes volúmenes de datos y transacciones.
+- Redis o Memcached para reducir la carga en la base de datos.
+- Asegurarse de que las consultas a la base de datos estén optimizadas y utilizar índices adecuadamente.
+- Replicación de datos y estrategias de backup para asegurar la disponibilidad y recuperación de datos en caso de fallos.
 
 # 3. Redes
 
