@@ -124,4 +124,4 @@ const ServiceForm = () => {
     )
 }
 
-export default MoviesForm
+export default ServiceForm
