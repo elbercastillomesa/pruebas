@@ -8,6 +8,11 @@ services:
       MYSQL_DATABASE: celsia_pruebas
     ports:
       - 3306:3306
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5 
     volumes:
       - ./db:/docker-entrypoint-initdb.d
     networks:
@@ -18,7 +23,8 @@ services:
       context: api
       dockerfile: Dockerfile
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
     environment:
       MYSQL_HOST: mysql
       MYSQL_USER: root
@@ -29,8 +35,8 @@ services:
       - 4000:4000
     healthcheck:
       test: ["CMD", "curl", "http://backend:4000/"]
-      interval: 30s
-      timeout: 10s
+      interval: 40s
+      timeout: 15s
       retries: 5      
     networks:
       default:

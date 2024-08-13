@@ -20,7 +20,7 @@ const Services = sequelize.define('Services', {
     type: DataTypes.DATE,
   },
   servicio: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING,
     primaryKey: true,
   },
 });

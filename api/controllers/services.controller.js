@@ -5,7 +5,7 @@ const Services = require('../models/services.model');
 // GET All
 const getAllServices = async (req, res) => {
 
-    const user_id  = req.user.id
+    const user_id  = req.user.identificacion
     
     const clients = await Clients.findAll({
         where: {
