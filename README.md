@@ -126,13 +126,36 @@ Para el desarrollo de la prueba teórica, tendrás que escribir tus respuestas e
 
 3.1. Explica la diferencia entre un router y un switch. ¿Cuándo usarías cada uno?
 
+- El switch conecta varios equipos dentro de una misma red local (LAN), el router conecta diferentes redes entre si. 
+
+- Usaria el router para tener conexion a internet y el swithc para una oficina o varias oficinas.
+
 3.2. Describe las siete capas del modelo OSI y menciona brevemente la función principal de cada una
+
+1. **Capa Física**: Transmite a través de un medio físico (ejemplo: cables, ondas).
+2. **Capa de Enlace de Datos**: Proporciona transferencia libre de errores entre nodos conectados directamente.
+3. **Capa de Red**: Ayuda a encontrar la ruta que los datos deben seguir para lelgar sin errores.
+4. **Capa de Transporte**: Permite transferencia de datos completa y sin errores entre  dispositivos.
+5. **Capa de Sesión**: Gestiona y termina las conexiones entre aplicativos.
+6. **Capa de Presentación**: Traduce los datos entre el formato de la red y el formato de los aplicativos.
+7. **Capa de Aplicación**: Proporciona servicios de red a los aplicativos.
 
 3.3. Explica las diferencias entre los protocolos TCP y UDP. Dar un ejemplo de cuándo usarías cada uno?
 
+- TCP: Para conexiones donde los datos deben ser confiables como transferencia de archivos o en webs de bancos, etc.
+- UDP: Para conexiones donde la velocidad es mas importante, como youtube o juegos o streaming.
+
+
 3.4. ¿Qué es una máscara de subred y cómo se utiliza para dividir una red en subredes más pequeñas?
 
+Es una dividision a las direcciónes IP en una parte de red y una parte de host. 
+
+La dirección IP 192.168.1.0 y máscara de subred 255.255.255.0, se divide en subredes más pequeñas cambiando la máscara de subred a algo como 255.255.255.128, para tener dos subredes con 126 hosts cada una.
+
 3.5. ¿Puedes mencionar algunos protocolos de enrutamiento dinámico y explicar brevemente cómo funcionan?
+
+Solo conozco el RIP y OSPF, que son similares, el RIP se usa en redes pequelas porque usa el conteo de saltos para determinar la mejor ruta, el OSPF usa algoritmos entre las subredes y se usa en redes mas grandes.
+
 
 # 4. Gestión de Proyectos
 
