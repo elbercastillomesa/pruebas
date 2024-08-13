@@ -1,0 +1,56 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: celsia_pruebas
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    networks:
+      default:
+
+  backend:
+    build:
+      context: api
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DB: celsia_pruebas
+      MYSQL_PORT: 3306
+    ports:
+      - 4000:4000
+    healthcheck:
+      test: ["CMD", "curl", "http://backend:4000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5      
+    networks:
+      default:
+
+  frontend:
+    build:
+      context: webapp
+      dockerfile: Dockerfile
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - 3000:3000
+    volumes:
+      - ./webapp:/usr/src/app      
+    networks:
+      default:
+
+volumes:
+  mysql_data:
+
+networks:
+  default:
